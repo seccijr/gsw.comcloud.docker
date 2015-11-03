@@ -1,0 +1,38 @@
+casserver:
+    build: ./casserver
+    ports:
+        - "8080:8080"
+        - "8443:8443"
+zimbra:
+    build: ./zimbra
+    links: 
+        - casserver
+    ports:
+        - "443:443"
+#redmine:
+#    build: ./redmine
+#    links: 
+#        - casserver
+#    ports:
+#        - "3000:3000"
+#owncloud:
+#    build: ./owncloud
+#    links: 
+#        - casserver
+#    ports:
+#        - "80:80"
+#openfire:
+#    build: ./openfire
+#    links: 
+#        - casserver
+#    ports:
+#        - "9090:9090"
+#        - "9091:9091"
+#        - "5222:5222"
+#        - "5223:5223"
+#        - "5223:5223"
+#        - "7070:7070"
+#        - "7777:7777"
+#        - "7443:7443"
+#        - "5229:5229"
+#        - "5269:5269"
