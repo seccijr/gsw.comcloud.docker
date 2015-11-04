@@ -1,6 +1,6 @@
 #!/bin/bash
 
-puppet apply /tmp/puppet.pp
+puppet apply /tmp/manifest.pp
 
 if [[ $1 == "-d" ]]; then
   while true; do sleep 1000; done
