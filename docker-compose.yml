@@ -9,6 +9,10 @@ zimbra:
         - casserver
     ports:
         - "443:443"
+    environment:
+        - PASSWORD=docker
+    hostname: zimbra
+    domain: comcloud.com
 redmine:
     build: services/redmine
     links: 
