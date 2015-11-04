@@ -154,6 +154,12 @@ EOF
 echo "Installing Zimbra Collaboration injecting the configuration"
 /opt/zimbra/libexec/zmsetup.pl -c /tmp/zcs/installZimbraScript
 
+cat <<EOF >/tmp/cert-keystrokes
+yes
+EOF
+
+/opt/zimbra/java/bin/keytool -import -file /tmp/casserver.cer -alias cascert -trustcacerts -keystore /opt/zimbra/java/jre/lib/security/cacerts -storepass changeit < /tmp/cert-keystrokes
+
 if [[ $1 == "-d" ]]; then
   while true; do sleep 1000; done
 fi

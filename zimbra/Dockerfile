@@ -16,7 +16,10 @@ EXPOSE 8443
 EXPOSE 7071
 EXPOSE 9071
 
+WORKDIR /tmp
+
 RUN if [ ! -d /tmp/zcs ]; then mkdir /tmp/zcs; fi;
 ADD start.sh /tmp/zcs/start.sh
+ADD casserver.cer /tmp/casserver.cer
 
 CMD ["/bin/bash", "/tmp/zcs/start.sh", "-d"]
