@@ -1,0 +1,6 @@
+owncloud:
+    build: .
+    ports:
+        - "80:80"
+    hostname: owncloud
+    domainname: comcloud.com

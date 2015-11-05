@@ -1,0 +1,6 @@
+redmine:
+    build: .
+    ports:
+        - "3000:3000"
+    hostname: redmine
+    domainname: comcloud.com

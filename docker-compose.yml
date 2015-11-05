@@ -3,6 +3,8 @@ casserver:
     ports:
         - "8080:8080"
         - "8443:8443"
+    hostname: casserver
+    domainname: comcloud.com
 zimbra:
     build: services/zimbra
     links: 
@@ -12,19 +14,23 @@ zimbra:
     environment:
         - PASSWORD=docker
     hostname: zimbra
-    domain: comcloud.com
+    domainname: comcloud.com
 redmine:
     build: services/redmine
     links: 
         - casserver
     ports:
         - "3000:3000"
+    hostname: redmine
+    domainname: comcloud.com
 owncloud:
     build: services/owncloud
     links: 
         - casserver
     ports:
         - "80:80"
+    hostname: owncloud
+    domainname: comcloud.com
 openfire:
     build: services/openfire
     links: 
@@ -34,9 +40,10 @@ openfire:
         - "9091:9091"
         - "5222:5222"
         - "5223:5223"
-        - "5223:5223"
         - "7070:7070"
         - "7777:7777"
         - "7443:7443"
         - "5229:5229"
         - "5269:5269"
+    hostname: openfire
+    domainname: comcloud.com
