@@ -1,6 +1,9 @@
 FROM secci/openfire:0.5
 MAINTAINER Carlos I. Pérez Sechi <ciperezs@generalsw.com>
 
+RUN apt-get update && apt-get install -y openssh-server supervisor
+RUN mkdir -p  /var/log/supervisor 
+
 EXPOSE 7777
 EXPOSE 9090
 EXPOSE 9091
