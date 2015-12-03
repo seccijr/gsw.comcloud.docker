@@ -1,8 +1,5 @@
-FROM secci/openfire:0.5
+FROM secci/openfire:0.8
 MAINTAINER Carlos I. Pérez Sechi <ciperezs@generalsw.com>
-
-RUN apt-get update && apt-get install -y openssh-server supervisor
-RUN mkdir -p  /var/log/supervisor 
 
 EXPOSE 7777
 EXPOSE 9090
@@ -16,7 +13,7 @@ EXPOSE 7070
 
 WORKDIR /tmp
 
-ADD data/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD data/start.sh /tmp/start.sh
 ADD data/casserver.cer /tmp/casserver.cer
 
-CMD ["/usr/bin/supervisord"]
+CMD /bin/bash /tmp/start.sh -d
