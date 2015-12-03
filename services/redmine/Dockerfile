@@ -1,11 +1,12 @@
-FROM secci/redmine:0.6
+FROM secci/redmine:0.7
 MAINTAINER Carlos I. Pérez Sechi <ciperezs@generalsw.com>
 
 EXPOSE 3000
 
 WORKDIR /tmp
 
-ADD manifest.pp /tmp/manifest.pp
+ADD data/start.sh /tmp/start.sh
 ADD data/casserver.cer /tmp/casserver.cer
+ADD data/redmine_cas /var/www/redmine-2.3.4/plugins/redmine_cas
 
-CMD puppet apply manifest.pp
+CMD bash /tmp/start.sh
