@@ -1,6 +1,10 @@
 FROM secci/zimbra:base
 MAINTAINER Carlos I. Pérez Sechi <secci.jr@gmail.com>
 
+RUN apt-get update && apt-get install -y openssh-server supervisor
+RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/log/supervisor 
+ADD data/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 EXPOSE 22
 EXPOSE 25
 EXPOSE 456
